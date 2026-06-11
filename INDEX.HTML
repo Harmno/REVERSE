@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>🧩 Modding Starter Roadmap | Beginner-Friendly Android Tutorials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f9fc;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    /* simple container */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* header area - friendly & clear */
+    .welcome-card {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border-radius: 2rem;
+      padding: 1.8rem 1.8rem 1.5rem;
+      margin-bottom: 2rem;
+      color: #f1f5f9;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .welcome-card h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.6rem;
+    }
+
+    .welcome-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 1rem;
+    }
+
+    .tip-badge {
+      background: #2d3a5e;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #b9d0f0;
+    }
+
+    /* telegram banner both top and bottom */
+    .telegram-banner {
+      background: #eef2ff;
+      border-left: 5px solid #0088cc;
+      padding: 0.9rem 1.2rem;
+      border-radius: 1.2rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+    .telegram-banner-bottom {
+      margin-top: 2rem;
+      margin-bottom: 0;
+      background: #f1f5f9;
+      border-left-color: #2c7da0;
+    }
+    .telegram-banner span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0c4a6e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .telegram-btn {
+      background: #0088cc;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .telegram-btn:hover {
+      background: #006699;
+      transform: scale(0.98);
+    }
+    .telegram-banner .telegram-link-text {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #90cdf4;
+    }
+    .telegram-banner .telegram-link-text:hover {
+      color: #0369a1;
+    }
+
+    /* simple progress / legend */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #e2e8f0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      justify-content: center;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-step {
+      background: #eef2ff;
+      color: #1e40af;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+
+    /* list style — clean and readable */
+    .tutorial-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .tutorial-item {
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #e9edf2;
+      transition: all 0.2s ease;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .tutorial-item:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    }
+
+    /* header row */
+    .item-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.2rem;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f2f5;
+      flex-wrap: wrap;
+    }
+
+    .step-number {
+      background: #eef2ff;
+      color: #2563eb;
+      font-weight: 700;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      font-size: 0.9rem;
+    }
+
+    .topic-badge {
+      background: #f1f5f9;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #334155;
+    }
+
+    .topic-badge.modmenu { background: #dbeafe; color: #1e40af; }
+    .topic-badge.imgui { background: #f3e8ff; color: #6b21a5; }
+    .topic-badge.esp { background: #dcfce7; color: #166534; }
+    .topic-badge.injector { background: #fff1f0; color: #b91c1c; }
+    .topic-badge.dumping { background: #fff7e5; color: #b45309; }
+    .topic-badge.offsets { background: #e0f2fe; color: #0369a1; }
+    .topic-badge.lgl { background: #e9f5ff; color: #0c4e6e; }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+      flex: 1;
+      color: #0f172a;
+    }
+
+    .item-desc {
+      padding: 0.7rem 1.2rem 0.9rem 1.2rem;
+      font-size: 0.85rem;
+      color: #475569;
+      background: #fefefe;
+      border-bottom: 1px solid #f0f2f5;
+    }
+
+    .item-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.2rem;
+      background: #fafcff;
+    }
+
+    .btn-link {
+      text-decoration: none;
+      background: #f1f5f9;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1e293b;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-link:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+      gap: 8px;
+    }
+
+    .type-icon {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    hr {
+      margin: 1rem 0;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #64748b;
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 2rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 600px) {
+      .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+      }
+      .welcome-card h1 {
+        font-size: 1.5rem;
+      }
+      .telegram-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="welcome-card">
+    <h1>📱 <span>Modding for beginners</span></h1>
+    <p>Start from absolute zero — simple steps, no confusing jargon. All resources sorted from easiest to more advanced. Follow the order and build your first mod menu step by step.</p>
+    <div class="tip-badge">✨ New to modding? Just scroll down and follow the numbers →</div>
+  </div>
+
+  <!-- 🔹 TELEGRAM LINK - TOP SECTION 🔹 -->
+  <div class="telegram-banner">
+    <span>📢 ✨ Join the modding community & get updates</span>
+    <a href="https://t.me/dumbsbio" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+      💬 t.me/dumbsbio → 
+    </a>
+  </div>
+
+  <div class="legend">
+    <span>📌 <strong>How to read:</strong></span>
+    <span>🔹 #1 → #2 → #3 (follow sequence)</span>
+    <span>🎬 Video / 📝 Forum / 🐙 GitHub</span>
+    <span>⭐ Start with "Mod Menu" basics first</span>
+  </div>
+
+  <div class="tutorial-list" id="starterList"></div>
+
+  <!-- 🔹 TELEGRAM LINK - BOTTOM SECTION 🔹 -->
+  <div class="telegram-banner telegram-banner-bottom">
+    <span>💬 🤝 Need help? Connect with other beginners & modders</span>
+    <a href="https://t.me/dumbsbio" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+      🔗 Open Telegram Channel
+    </a>
+  </div>
+
+  <div class="footnote">
+    🧠 All resources are handpicked from YouTube, Platinmods & GitHub. Perfect for total beginners who want to learn Android modding (mod menus, ImGui, ESP, offsets).<br>
+    ⚡ Click any link – tutorials open in new tab. Happy modding & learning!
+  </div>
+</div>
+
+<script>
+  // Sorted in a "simple people / starter order" — from foundational concepts to advanced.
+  // Begins with 'what is offset?', then mod menu creation basics, then LGL, then ImGui, then injectors/ESP etc.
+  // But still respecting logical learning curve for a starter.
+  const tutorials = [
+    { step: 1, title: "🔍 What are offsets? And how to use them in Game Guardian", desc: "Absolute beginner: understand what offsets are — core concept for any mod menu. Watch this first.", link: "https://www.youtube.com/watch?v=ul3VmnNGMng", category: "Offsets", type: "video", badgeStyle: "offsets" },
+    { step: 2, title: "🎮 How to find offsets For any Game (GameGuardian)", desc: "Practical video: finding offsets with GameGuardian. Essential skill before building menus.", link: "https://www.youtube.com/watch?v=fQ7r6sV5xu0", category: "Offsets", type: "video", badgeStyle: "offsets" },
+    { step: 3, title: "🛠️ How to Make a Mod Menu (Beginner's Guide) – AIDE", desc: "Step-by-step: build your first mod menu for Android using AIDE. Perfect entry point.", link: "https://www.youtube.com/watch?v=HUw8A2uienY", category: "Mod Menu", type: "video", badgeStyle: "modmenu" },
+    { step: 4, title: "🧩 Easy Mod Menu Tutorial [Part 1] Design", desc: "Design the mod menu interface. Later parts cover offsets & game integration (simple flow).", link: "https://www.youtube.com/watch?v=MfCC7xDmAzw", category: "Mod Menu", type: "video", badgeStyle: "modmenu" },
+    { step: 5, title: "✏️ Create Your Own Mod Menu (Beginner's Guide)", desc: "Another simple from-scratch tutorial, reinforces the basics.", link: "https://www.youtube.com/watch?v=JpVNhPUnDdk", category: "Mod Menu", type: "video", badgeStyle: "modmenu" },
+    { step: 6, title: "⚡ How To Make Mod Menu Easy Way | Beginner's guide", desc: "Simplified method + playlist for next steps. Great if you found previous steps a bit tricky.", link: "https://www.youtube.com/watch?v=aVmMs3fqM-0", category: "Mod Menu", type: "video", badgeStyle: "modmenu" },
+    { step: 7, title: "📲 Android Mod Menu Tutorial Part 3 | Adding Menu to Game", desc: "Learn how to integrate your mod menu into the actual game using AIDE Pro.", link: "https://www.youtube.com/watch?v=YVW2rXRRZ9E", category: "Mod Menu", type: "video", badgeStyle: "modmenu" },
+    { step: 8, title: "🛠️ LGL Mod Menu Tutorial Pt:1 (Android Studio)", desc: "Advanced but beginner-friendly LGL template: mod menu with il2cpp, Lucky Patcher integration.", link: "https://www.youtube.com/watch?v=39CkQ0q8J0I", category: "LGL", type: "video", badgeStyle: "lgl" },
+    { step: 9, title: "📱 How To Make Mod Menu In Mobile | LGL Part 1", desc: "LGL menu on mobile (AIDE / NDK). Straightforward for mobile-only modders.", link: "https://www.youtube.com/watch?v=eqzn6B1xA4Y", category: "LGL", type: "video", badgeStyle: "lgl" },
+    { step: 10, title: "🎨 How To Make ImGui Mod Menu Any Game (LsPatch)", desc: "Introduction to ImGui menus for any game – modern UI, great for Unity titles.", link: "https://www.youtube.com/watch?v=J422DositM0", category: "ImGui", type: "video", badgeStyle: "imgui" },
+    { step: 11, title: "🚫 NO ROOT IMGUI TUTORIAL for Unity Games", desc: "Create ImGui menu without root access, supports ESP and x32/x64 devices.", link: "https://www.youtube.com/watch?v=IbKfiyGnxlA", category: "ImGui", type: "video", badgeStyle: "imgui" },
+    { step: 12, title: "📖 [IMGUI CHEAT MENU] Android | AIDE (Forum tutorial)", desc: "Detailed written guide: building an ImGui cheat menu, loading code, for Unity/other engines.", link: "https://platinmods.com/threads/imgui-cheat-menu-tutorials-android-aide.157929/", category: "ImGui", type: "forum", badgeStyle: "imgui" },
+    { step: 13, title: "👁️ Beginner's Guide to Drawing ESP Lines to Players", desc: "Add ESP (wallhack) lines to your mod menu – make players visible through walls.", link: "https://www.youtube.com/watch?v=tbQKOgyq0jg", category: "ESP", type: "video", badgeStyle: "esp" },
+    { step: 14, title: "🌍 Tutorial Make ESP For Unity Games C++ (Forum)", desc: "Complete ESP guide: entity list, world-to-screen, rendering with LGL Mod Menu style.", link: "https://platinmods.com/threads/make-esp-for-unity-games-c.160962/", category: "ESP", type: "forum", badgeStyle: "esp" },
+    { step: 15, title: "💉 Andlua Injector Tutorial | Root Injector & Offset Patching", desc: "Learn injection techniques – root injector, patching offsets into Unity games.", link: "https://www.youtube.com/watch?v=VaLwvS4jbQ8", category: "Injector", type: "video", badgeStyle: "injector" },
+    { step: 16, title: "🐙 GitHub: Android-Virtual-Inject (No Root Required)", desc: "Modern injector using virtual environment – no root, easy to test. README instructions.", link: "https://github.com/reveny/Android-Virtual-Inject", category: "Injector", type: "github", badgeStyle: "injector" },
+    { step: 17, title: "🧬 GitHub: Android-DLL-Injector (Shared Lib Injector)", desc: "GUI tool to inject .so libraries into Android processes. Great for advanced learners.", link: "https://github.com/0xCsy/Android-DLL-Injector", category: "Injector", type: "github", badgeStyle: "injector" },
+    { step: 18, title: "⚙️ How to use Il2CppDumper | Unity IL2CPP Game Modding", desc: "Dump IL2CPP games to get offsets & functions – essential for Unity game modding.", link: "https://www.youtube.com/watch?v=gc3I_u_Xy4c", category: "Dumping", type: "video", badgeStyle: "dumping" },
+    { step: 19, title: "🔄 How To Decompile Unity Games (2026 Method)", desc: "AssetRipper tutorial: extract assets and code from Unity games (part 1).", link: "https://www.youtube.com/watch?v=5IEuE_91m1I", category: "Dumping", type: "video", badgeStyle: "dumping" },
+    { step: 20, title: "📦 IL2CPP Dumping — PA Dumper / Zygist / Frida", desc: "Advanced dumping techniques to obtain readable code from IL2CPP games.", link: "https://www.youtube.com/watch?v=D3dO5YvsSnU", category: "Dumping", type: "video", badgeStyle: "dumping" },
+    { step: 21, title: "📚 Find Class & Field Offsets Using Game Guardian + dump.cs", desc: "Master offsets with GG + dump.cs – locate methods and fields easily.", link: "https://www.youtube.com/watch?v=NlJ8oZzuZzA", category: "Offsets", type: "video", badgeStyle: "offsets" },
+    { step: 22, title: "📌 6 Methods to Find Offsets + dump.cs search (Forum)", desc: "Complete offset guide for GameGuardian: 6 practical methods.", link: "https://gameguardian.net/forum/topic/41070-how-to-find-offset-and-use-them-in-game-guardian/", category: "Offsets", type: "forum", badgeStyle: "offsets" },
+    { step: 23, title: "🎬 Full Playlist: Mod Menu Making (Telegram/Youtube, lib rename)", desc: "Bonus: complete series covering mod menu polish, distribution and advanced tweaks.", link: "https://www.youtube.com/playlist?list=PLL1Gcztwditf_i4hvgJbREkN6O43WFOHf", category: "Mod Menu", type: "playlist", badgeStyle: "modmenu" },
+    { step: 24, title: "📀 Game Guardian Mega Playlist (Scripts & Methods)", desc: "Deep dive: GameGuardian scripting, advanced search and modding methods.", link: "https://www.youtube.com/playlist?list=PLaSgPYxbQJu18UG_Z5rUobVNqMWpS0V4Z", category: "Offsets", type: "playlist", badgeStyle: "offsets" },
+    { step: 25, title: "#HowToMakeModMenu YouTube Collection", desc: "Latest 2025 no-root tutorials, fresh mod menu approaches and community videos.", link: "https://www.youtube.com/hashtag/howtomakemodmenu", category: "Mod Menu", type: "hash", badgeStyle: "modmenu" },
+    { step: 26, title: "🐙 Android-ImGui-Mod-Menu (Ready-to-use GitHub)", desc: "Pre-built ImGui mod menu template – integrate quickly and learn from working code.", link: "https://github.com/reveny/Android-ImGui-Mod-Menu", category: "ImGui", type: "github", badgeStyle: "imgui" },
+    { step: 27, title: "🔧 C# Game Hacking - IL2CPP Reverse Engineering", desc: "Advanced but valuable: reverse IL2CPP Unity games with C# + Cheat Engine.", link: "https://www.youtube.com/watch?v=_0QrMBomtDs", category: "Dumping", type: "video", badgeStyle: "dumping" }
+  ];
+
+  function getTypeIcon(type) {
+    if(type === 'video') return '🎥';
+    if(type === 'forum') return '📝';
+    if(type === 'github') return '🐙';
+    if(type === 'playlist') return '📑';
+    return '🔗';
+  }
+
+  function renderStarterList() {
+    const container = document.getElementById('starterList');
+    if (!container) return;
+    
+    let html = '';
+    tutorials.forEach(item => {
+      const typeIcon = getTypeIcon(item.type);
+      let badgeClass = '';
+      switch(item.badgeStyle) {
+        case 'modmenu': badgeClass = 'modmenu'; break;
+        case 'imgui': badgeClass = 'imgui'; break;
+        case 'esp': badgeClass = 'esp'; break;
+        case 'injector': badgeClass = 'injector'; break;
+        case 'dumping': badgeClass = 'dumping'; break;
+        case 'offsets': badgeClass = 'offsets'; break;
+        case 'lgl': badgeClass = 'lgl'; break;
+        default: badgeClass = '';
+      }
+      
+      html += `
+        <div class="tutorial-item">
+          <div class="item-header">
+            <div class="step-number">#${item.step}</div>
+            <div class="topic-badge ${badgeClass}">${item.category}</div>
+            <div class="item-title">${item.title}</div>
+          </div>
+          <div class="item-desc">
+            ${item.desc}
+          </div>
+          <div class="item-link">
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="btn-link">
+              <span>${typeIcon}</span> Open tutorial →
+            </a>
+            <span class="type-icon">${item.type === 'video' ? 'video tutorial' : item.type === 'forum' ? 'community guide' : item.type === 'github' ? 'GitHub repo' : 'resource'}</span>
+          </div>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
+  }
+  
+  renderStarterList();
+</script>
+</body>
+</html>
+```
